@@ -30,8 +30,24 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    const preventScroll = (e: TouchEvent) => e.preventDefault();
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+      document.addEventListener('touchmove', preventScroll, { passive: false });
+    } else {
+      document.body.style.overflow = '';
+      document.removeEventListener('touchmove', preventScroll);
+    }
+    return () => {
+      document.body.style.overflow = '';
+      document.removeEventListener('touchmove', preventScroll);
+    };
+  }, [mobileMenuOpen]);
+
   return (
-    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white/80 backdrop-blur-md shadow-sm py-4' : 'bg-transparent py-6'}`}>
+    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${mobileMenuOpen ? 'bg-white py-4 shadow-sm' : isScrolled ? 'bg-white/80 backdrop-blur-md shadow-sm py-4' : 'bg-transparent py-6'}`}>
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center text-brand-charcoal">
         <a href="#" className="text-2xl font-display font-bold tracking-tighter">CARRYOON</a>
         
