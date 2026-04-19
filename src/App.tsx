@@ -33,7 +33,7 @@ const Navbar = () => {
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white/80 backdrop-blur-md shadow-sm py-4' : 'bg-transparent py-6'}`}>
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center text-brand-charcoal">
-        <a href="#" className="text-2xl font-display font-bold tracking-tighter">CARRYON</a>
+        <a href="#" className="text-2xl font-display font-bold tracking-tighter">CARRYOON</a>
         
         <div className="hidden md:flex space-x-8 text-sm font-medium uppercase tracking-widest">
           {['Heritage', 'Collections', 'Craftsmanship', 'Reviews'].map((item) => (
@@ -130,12 +130,12 @@ const AccordionItem = ({ question, answer }: { question: string, answer: string 
 export default function App() {
   const [activeShowcase, setActiveShowcase] = useState(0);
   const images = [
-    "https://images.unsplash.com/photo-1544816153-16ad4614ff28?q=80&w=2187&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=2187&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?q=80&w=2187&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1559563458-527698bf5295?q=80&w=2070&auto=format&fit=crop"
+    "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?q=80&w=1400&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1559563458-527698bf5295?q=80&w=1400&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=1400&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=1400&auto=format&fit=crop"
   ];
-  const titles = [ "Interior Organization", "Hardware Details", "Texture & Grain", "Lifestyle View" ];
+  const titles = [ "Texture & Grain", "Lifestyle View", "Hardware Details", "Interior Organization" ];
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -254,7 +254,7 @@ export default function App() {
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 md:mb-12 gap-6 md:gap-8">
             <div className="max-w-xl">
               <h2 className="text-3xl md:text-5xl font-display mb-4 md:mb-6">The Artisan Series</h2>
-              <p className="text-brand-charcoal/60 text-sm md:text-base">A deeper look at the details that define the Carryon standard.</p>
+              <p className="text-brand-charcoal/60 text-sm md:text-base">A deeper look at the details that define the Carryoon standard.</p>
             </div>
             <div className="flex space-x-2 md:space-x-4">
               {[0, 1, 2, 3].map(i => (
@@ -281,7 +281,6 @@ export default function App() {
                   src={images[activeShowcase]}
                   alt="Product Showcase"
                   className="w-full h-full object-cover"
-                  referrerPolicy="no-referrer"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
                 <div className="absolute bottom-6 left-6 right-6 md:bottom-12 md:left-12 md:right-12 flex justify-between items-end text-white">
@@ -349,7 +348,7 @@ export default function App() {
             <img 
               src="https://images.unsplash.com/photo-1554188248-986adbb73be4?q=80&w=2070&auto=format&fit=crop" 
               alt="Craftsmanship"
-              className="w-full aspect-[4/5] object-cover rounded-sm grayscale hover:grayscale-0 transition-all duration-700 shadow-2xl"
+              className="w-full aspect-[4/5] object-cover rounded-sm shadow-2xl"
               referrerPolicy="no-referrer"
             />
             <div className="absolute -top-10 -right-10 w-40 h-40 border border-brand-tan/30 hidden lg:block"></div>
@@ -361,20 +360,20 @@ export default function App() {
       {/* Social Proof */}
       <section id="reviews" className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="flex justify-between items-center mb-16">
+          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-6 mb-16">
             <div>
-              <h2 className="text-4xl font-display mb-4">Refined by People</h2>
+              <h2 className="text-3xl md:text-4xl font-display mb-4">Refined by People</h2>
               <div className="flex items-center space-x-2">
                 {[1,2,3,4,5].map(i => <Star key={i} size={16} fill="#D4B996" color="#D4B996" />)}
                 <span className="text-sm font-bold ml-2">4.9/5 from 2,300+ professionals</span>
               </div>
             </div>
-            <button className="text-sm font-bold uppercase tracking-widest border-b-2 border-brand-tan pb-1 hover:text-brand-tan transition-colors">
+            <button className="self-start sm:self-auto text-sm font-bold uppercase tracking-widest border-b-2 border-brand-tan pb-1 hover:text-brand-tan transition-colors whitespace-nowrap">
               View All Reviews
             </button>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               {
                 text: "The patina after six months is breathtaking. This bag has become my most trusted companion for international business travel.",
@@ -398,7 +397,7 @@ export default function App() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="bg-brand-offwhite p-10 rounded-sm relative"
+                className="bg-brand-offwhite p-8 rounded-sm relative"
               >
                 <div className="text-brand-tan mb-6"><Star fill="#D4B996" size={20} /></div>
                 <p className="text-brand-charcoal font-medium leading-relaxed mb-8 italic">"{review.text}"</p>
@@ -449,7 +448,7 @@ export default function App() {
               />
               <AccordionItem 
                 question="How long will it last?" 
-                answer="With minimal care, a Carryon bag is built to last 20+ years. We provide a lifetime warranty on all structural components including stitching and hardware." 
+                answer="With minimal care, a Carryoon bag is built to last 20+ years. We provide a lifetime warranty on all structural components including stitching and hardware." 
               />
               <AccordionItem 
                 question="What is the return policy?" 
@@ -526,14 +525,14 @@ export default function App() {
         </div>
 
         <div className="max-w-7xl mx-auto px-6 mt-32 pt-12 border-t border-brand-offwhite/5 flex flex-col md:flex-row justify-between items-center gap-8">
-          <div className="text-3xl font-display font-bold tracking-tighter">CARRYON</div>
+          <div className="text-3xl font-display font-bold tracking-tighter">CARRYOON</div>
           <div className="flex space-x-8 text-xs font-bold uppercase tracking-widest opacity-50">
             <a href="#" className="hover:opacity-100 transition-opacity">Privacy Policy</a>
             <a href="#" className="hover:opacity-100 transition-opacity">Terms of Service</a>
             <a href="#" className="hover:opacity-100 transition-opacity">Shipping</a>
           </div>
           <p className="text-xs opacity-30 text-center uppercase tracking-widest">
-            © 2026 Carryon Leather Goods. All rights reserved.
+            © 2026 Carryoon Leather Goods. All rights reserved.
           </p>
         </div>
 
